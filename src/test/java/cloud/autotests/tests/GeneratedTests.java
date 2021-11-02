@@ -50,7 +50,6 @@ public class GeneratedTests extends TestBase {
         $(".header__catalog").click();
         $(".group-card").$(byText("Мясо, птица, колбаса")).click();
         $(".sku-card-small-basket-control__default-control").click();
-        $(".sku-card-small-basket-control__input").shouldNotBe(Condition.value("0"));
         $(".header-catalog-link__counter--show").shouldHave(Condition.text("1"), Duration.ofSeconds(5));
         $(".header-catalog-link__icon").click();
         $(".sku-list-in-basket").shouldBe(Condition.visible);
