@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class GeneratedTests extends TestBase {
@@ -32,7 +31,8 @@ public class GeneratedTests extends TestBase {
     public void searchItemInCatalog() {
         open("");
         $(".catalog-search__field").setValue("Колбаса");
-        $(".catalog-search__icon-label").shouldBe(Condition.enabled).click();
+        sleep(3000);
+        $(".catalog-search__icon-label").click();
         $(".sku-card-small-container").shouldHave(Condition.text("Колбаса"));
     }
 
@@ -50,8 +50,8 @@ public class GeneratedTests extends TestBase {
         $(".header__catalog").click();
         $(".group-card").$(byText("Мясо, птица, колбаса")).click();
         $(".sku-card-small-basket-control__default-control").click();
-        $(".sku-card-small-basket-control__input").shouldHave(Condition.value("1"));
-        $(".header-catalog-link__counter--show").shouldHave(Condition.text("1"), Duration.ofSeconds(3));
+        $(".sku-card-small-basket-control__input").shouldNotBe(Condition.value("0"));
+        $(".header-catalog-link__counter--show").shouldHave(Condition.text("1"), Duration.ofSeconds(5));
         $(".header-catalog-link__icon").click();
         $(".sku-list-in-basket").shouldBe(Condition.visible);
         $(byText("Товаров в корзине")).sibling(0).shouldHave(Condition.text("1"));
