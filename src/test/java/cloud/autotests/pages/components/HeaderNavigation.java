@@ -30,7 +30,7 @@ public class HeaderNavigation {
         return this;
     }
 
-    @Step("Поиск значению {product}")
+    @Step("Поиск по значению {product}")
     public HeaderNavigation searchByValue(String product) {
         $(".catalog-search__field").setValue(product);
         sleep(3000);

@@ -7,13 +7,13 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Catalog {
-    @Step("Перейти в категорию каталога")
+    @Step("Перейти в категорию каталога {category}")
     public Catalog goTocatalogCategory(String category) {
         $(".group-card").$(byText("Мясо, птица, колбаса")).click();
         return this;
     }
 
-    @Step("Проверить заголовок категории каталога")
+    @Step("Проверить заголовок категории каталога {category}")
     public Catalog checkCatalogCategoryHeaderText(String category) {
         $(".catalog-view__title").shouldHave(Condition.text("Мясо, птица, колбаса"));
         return this;
@@ -25,7 +25,7 @@ public class Catalog {
         return this;
     }
 
-    @Step("Отображение заголовка для результатов поиск по значению {}")
+    @Step("Отображение заголовка для результатов поиск по значению {product}")
     public Catalog checkCatalogSearchResultsHeader(String product) {
         $(".search-results-page__title")
                 .shouldHave(Condition.text(String.format("Результаты поиска: «%s»", product)));

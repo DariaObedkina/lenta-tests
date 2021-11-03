@@ -13,7 +13,7 @@ public class Cart {
         return this;
     }
 
-    @Step("В корзине {number} продуктов")
+    @Step("Количество продуктов в корзине  = {number}")
     public Cart checkNumberOfProductsInCart(String number) {
         $(byText("Товаров в корзине")).sibling(0).shouldHave(Condition.text(number));
         return this;
