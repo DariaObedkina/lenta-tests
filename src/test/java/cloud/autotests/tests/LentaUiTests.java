@@ -42,7 +42,7 @@ public class LentaUiTests extends TestBase {
         headerNavigationComponent
                 .goToCatalog();
         catalogPage
-                .goTocatalogCategory(catalogCategory)
+                .goToCatalogCategory(catalogCategory)
                 .checkCatalogCategoryHeaderText(catalogCategory);
 
     }
@@ -82,7 +82,7 @@ public class LentaUiTests extends TestBase {
         headerNavigationComponent
                 .goToCatalog();
         catalogPage
-                .goTocatalogCategory(catalogCategory)
+                .goToCatalogCategory(catalogCategory)
                 .addProductToCart();
         headerNavigationComponent
                 .checkNumberDisplayedNextToCart("1")

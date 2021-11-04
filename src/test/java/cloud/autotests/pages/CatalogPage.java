@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CatalogPage {
     @Step("Перейти в категорию каталога {category}")
-    public CatalogPage goTocatalogCategory(String category) {
+    public CatalogPage goToCatalogCategory(String category) {
         $(".group-card").$(byText(category)).click();
         return this;
     }
