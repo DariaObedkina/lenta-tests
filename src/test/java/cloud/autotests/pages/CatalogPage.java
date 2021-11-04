@@ -6,34 +6,34 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Catalog {
+public class CatalogPage {
     @Step("Перейти в категорию каталога {category}")
-    public Catalog goTocatalogCategory(String category) {
-        $(".group-card").$(byText("Мясо, птица, колбаса")).click();
+    public CatalogPage goTocatalogCategory(String category) {
+        $(".group-card").$(byText(category)).click();
         return this;
     }
 
     @Step("Проверить заголовок категории каталога {category}")
-    public Catalog checkCatalogCategoryHeaderText(String category) {
-        $(".catalog-view__title").shouldHave(Condition.text("Мясо, птица, колбаса"));
+    public CatalogPage checkCatalogCategoryHeaderText(String category) {
+        $(".catalog-view__title").shouldHave(Condition.text(category));
         return this;
     }
 
     @Step("Название товара содержит слово {product}")
-    public Catalog checkProductValueName(String product) {
+    public CatalogPage checkProductValueName(String product) {
         $(".sku-card-small-container").shouldHave(Condition.text(product));
         return this;
     }
 
     @Step("Отображение заголовка для результатов поиск по значению {product}")
-    public Catalog checkCatalogSearchResultsHeader(String product) {
+    public CatalogPage checkCatalogSearchResultsHeader(String product) {
         $(".search-results-page__title")
                 .shouldHave(Condition.text(String.format("Результаты поиска: «%s»", product)));
         return this;
     }
 
     @Step("Добавить продукт в корзину")
-    public Catalog addProductToCart() {
+    public CatalogPage addProductToCart() {
         $(".sku-card-small-basket-control__default-control").click();
         return this;
     }

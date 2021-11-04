@@ -1,10 +1,10 @@
 package cloud.autotests.tests;
 
 
-import cloud.autotests.pages.Cart;
-import cloud.autotests.pages.Catalog;
+import cloud.autotests.pages.CartPage;
+import cloud.autotests.pages.CatalogPage;
 import cloud.autotests.pages.MainPage;
-import cloud.autotests.pages.components.HeaderNavigation;
+import cloud.autotests.pages.components.HeaderNavigationComponent;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
 @Owner("Дарья Обедкина")
 public class LentaUiTests extends TestBase {
     MainPage mainPage = new MainPage();
-    HeaderNavigation headerNavigation = new HeaderNavigation();
-    Catalog catalog = new Catalog();
-    Cart cart = new Cart();
+    HeaderNavigationComponent headerNavigationComponent = new HeaderNavigationComponent();
+    CatalogPage catalogPage = new CatalogPage();
+    CartPage cartPage = new CartPage();
 
     private String catalogCategory = "Мясо, птица, колбаса";
     private String productName = "Колбаса";
@@ -29,7 +29,7 @@ public class LentaUiTests extends TestBase {
     public void menuItemsDisplayedOnTheMainPage() {
         mainPage
                 .openPage();
-        headerNavigation
+        headerNavigationComponent
                 .checkThatNavigationButtonsAreDisplayed();
     }
 
@@ -39,9 +39,9 @@ public class LentaUiTests extends TestBase {
     public void goToCatalogGroup() {
         mainPage.
                 openPage();
-        headerNavigation
+        headerNavigationComponent
                 .goToCatalog();
-        catalog
+        catalogPage
                 .goTocatalogCategory(catalogCategory)
                 .checkCatalogCategoryHeaderText(catalogCategory);
 
@@ -53,9 +53,9 @@ public class LentaUiTests extends TestBase {
     public void searchItemInCatalog() {
         mainPage
                 .openPage();
-        headerNavigation
+        headerNavigationComponent
                 .searchByValue(productName);
-        catalog
+        catalogPage
                 .checkProductValueName(productName)
                 .checkCatalogSearchResultsHeader(productName);
     }
@@ -66,7 +66,7 @@ public class LentaUiTests extends TestBase {
     public void checkSearchSuggestions() {
         mainPage
                 .openPage();
-        headerNavigation
+        headerNavigationComponent
                 .setSearchValue(productName)
                 .checkIfSuggestionsAreDisplayed()
                 .checkFirstSuggestionText(productName);
@@ -79,15 +79,15 @@ public class LentaUiTests extends TestBase {
     public void addOneProductToCart() {
         mainPage
                 .openPage();
-        headerNavigation
+        headerNavigationComponent
                 .goToCatalog();
-        catalog
+        catalogPage
                 .goTocatalogCategory(catalogCategory)
                 .addProductToCart();
-        headerNavigation
+        headerNavigationComponent
                 .checkNumberDisplayedNextToCart("1")
                 .goToCart();
-        cart
+        cartPage
                 .checkThatThereAreProductsInCart()
                 .checkNumberOfProductsInCart("1");
 

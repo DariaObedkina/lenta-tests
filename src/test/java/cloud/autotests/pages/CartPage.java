@@ -6,15 +6,15 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Cart {
+public class CartPage {
     @Step("В корзине есть товары")
-    public Cart checkThatThereAreProductsInCart() {
+    public CartPage checkThatThereAreProductsInCart() {
         $(".sku-list-in-basket").shouldBe(Condition.visible);
         return this;
     }
 
     @Step("Количество продуктов в корзине  = {number}")
-    public Cart checkNumberOfProductsInCart(String number) {
+    public CartPage checkNumberOfProductsInCart(String number) {
         $(byText("Товаров в корзине")).sibling(0).shouldHave(Condition.text(number));
         return this;
     }
