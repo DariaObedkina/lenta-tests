@@ -25,7 +25,7 @@ IntelliJ IDEA, Java, Selenium, Selenide, Selenoid, Allure Report, Gradle, JUnit5
 ## Пример выполнения проверки "Переход в категорию каталога"
 ![1037ce1170f2e48c (1)](https://user-images.githubusercontent.com/43385864/140057507-2f1f3f55-3dd0-4409-aae3-f24009cb103a.gif)
 
-## Запуск автотестов в CI Jenkins
+## Запуск автотестов в CI <a href="https://jenkins.autotests.cloud/job/08-Daria_Obedkina-lenta-tests/">Jenkins</a>
 ![image](https://user-images.githubusercontent.com/43385864/140061240-51c89351-94e5-4b17-bc12-65fc41ed1c84.png)
 ![image](https://user-images.githubusercontent.com/43385864/140061317-5d0b2fb7-8c1c-475a-ad5e-83ced4b95f66.png)
 
@@ -71,9 +71,14 @@ ${REMOTE_DRIVER_URL} - адрес удаленного сервера
   
 %s:%s - логин и пароль для удаленного сервера 
   
-
 Генерация отчета:
 ```
 allure serve build/allure-results
 ```
 
+## Генерация отчета в <a href="https://jenkins.autotests.cloud/job/08-Daria_Obedkina-lenta-tests/33/allure/">Allure</a>
+![image](https://user-images.githubusercontent.com/43385864/140063076-e1cff983-180d-473b-985d-a248c91f1c60.png)
+
+## Оповещение в Telegram
+![image](https://user-images.githubusercontent.com/43385864/140063225-e51720c6-040a-4b2d-b851-c9c49c033443.png)
+  
